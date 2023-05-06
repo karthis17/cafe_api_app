@@ -97,7 +97,7 @@ def add_cafe():
         coffee_price=request.args.get("coffee_price"),
     )
     if db.session.add(new_cafe):
-        db.session.commit():
+        db.session.commit()
         return True
     return False 
 
