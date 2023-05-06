@@ -85,16 +85,16 @@ def get_cafe_at_location():
 @app.route("/add", methods=["POST"])
 def add_cafe():
     new_cafe = Cafe(
-        name=request.form.get("name"),
-        map_url=request.form.get("map_url"),
-        img_url=request.form.get("img_url"),
-        location=request.form.get("loc"),
-        has_sockets=bool(request.form.get("sockets")),
-        has_toilet=bool(request.form.get("toilet")),
-        has_wifi=bool(request.form.get("wifi")),
-        can_take_calls=bool(request.form.get("calls")),
-        seats=request.form.get("seats"),
-        coffee_price=request.form.get("coffee_price"),
+        name=request.args.get("cafe"),
+        map_url=request.args.get("map_url"),
+        img_url=request.args.get("img_url"),
+        location=request.args.get("loc"),
+        has_sockets=bool(request.args.get("sockets")),
+        has_toilet=bool(request.args.get("toilet")),
+        has_wifi=bool(request.args.get("wifi")),
+        can_take_calls=bool(request.args.get("calls")),
+        seats=request.args.get("seats"),
+        coffee_price=request.args.get("coffee_price"),
     )
     db.session.add(new_cafe)
     db.session.commit()
