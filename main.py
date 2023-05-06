@@ -82,7 +82,7 @@ def get_cafe_at_location():
 
 # HTTP POST - Create Record
 
-@app.route("/add", methods=["POST"])
+@app.route("/add", methods=["POST", "GET"])
 def add_cafe():
     new_cafe = Cafe(
         name=request.args.get("cafe"),
@@ -96,10 +96,9 @@ def add_cafe():
         seats=request.args.get("seats"),
         coffee_price=request.args.get("coffee_price"),
     )
-    if db.session.add(new_cafe):
-        db.session.commit()
-        return True
-    return False 
+    db.session.add(new_cafe):
+    db.session.commit()
+    
 
 
 # HTTP PUT/PATCH - Update Record
