@@ -96,9 +96,10 @@ def add_cafe():
         seats=request.args.get("seats"),
         coffee_price=request.args.get("coffee_price"),
     )
-    db.session.add(new_cafe)
-    db.session.commit()
-    return jsonify(response={"success": "Successfully added the new cafe."})
+    if db.session.add(new_cafe):
+        db.session.commit():
+        return True
+    return False 
 
 
 # HTTP PUT/PATCH - Update Record
