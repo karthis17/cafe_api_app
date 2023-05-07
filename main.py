@@ -1,6 +1,5 @@
 import os
 import random
-
 from flask import Flask, jsonify, render_template, request, url_for
 from flask_sqlalchemy import SQLAlchemy
 
@@ -94,10 +93,10 @@ def add_cafe():
         map_url=request.args.get("map_url"),
         img_url=request.args.get("img_url"),
         location=request.args.get("loc"),
-        has_sockets=bool(request.args.get("sockets")),
-        has_toilet=bool(request.args.get("toilet")),
-        has_wifi=bool(request.args.get("wifi")),
-        can_take_calls=bool(request.args.get("calls")),
+        has_sockets=request.args.get("sockets"),
+        has_toilet=request.args.get("toilet"),
+        has_wifi=request.args.get("wifi"),
+        can_take_calls=request.args.get("calls"),
         seats=request.args.get("seats"),
         coffee_price=request.args.get("coffee_price"),
     )
